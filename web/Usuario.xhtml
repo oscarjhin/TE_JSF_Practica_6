@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h1>Registro de Usuario</h1>
+
+        <h:form>
+            <h:panelGrid columns="3" columnClasses="alinder,alinizq,alinizq">
+
+                <h:outputLabel value="Nombre: " for="nombre" />
+                <h:inputText id="nombre" label="Nombre" required="true" value="#{usuarioBean.nombre}" >
+                    <f:validateLength minimum="2"  />
+                </h:inputText>                
+                <h:message for="nombre"/>
+
+                <h:outputLabel value="Apellidos: " for="apellidos" />
+                <h:inputText id="apellidos" label="Apellidos" required="true" value="#{usuarioBean.apellidos}" >
+                    <f:validateLength minimum="2"  />
+                </h:inputText>
+                <h:message for="apellidos"/>                
+
+                <h:outputLabel value="Correo: " for="correo" />
+                <h:inputText id="correo" label="Correo Electronico" required="true" value="#{usuarioBean.correo}" >
+                    <f:validator validatorId="validadorCorreo" />
+                </h:inputText>
+                <h:message for="correo"/>  
+
+                <h:outputLabel value="Contrasena: " for="contrasena" />
+                <h:inputSecret id="contrasena" label="Contrasena" required="true" value="#{usuarioBean.contrasena}" >
+                    <f:validateLength minimum="2"  />
+                </h:inputSecret>
+                <h:message for="contrasena"/>                
+
+
+                <h:panelGroup />
+                <h:commandButton id="registro" value="Registro" action="confirmacionUsuario" />
+
+            </h:panelGrid>
+
+
+        </h:form>
+
+    </h:body>
+</html>
+
